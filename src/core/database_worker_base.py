@@ -5,7 +5,7 @@ from src.core import Book, Author, BookYear
 
 class DatabaseWorkerBase(ABC):
     @abstractmethod
-    def add_book(self, book: Book) -> dict[str: str]:
+    def add_book(self, book: Book):
         pass
 
     @abstractmethod

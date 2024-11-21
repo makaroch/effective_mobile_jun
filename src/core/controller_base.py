@@ -9,7 +9,7 @@ class ControllerBase(ABC):
         pass
 
     @abstractmethod
-    def del_book(self):
+    def del_book(self, book_id):
         pass
 
     @abstractmethod

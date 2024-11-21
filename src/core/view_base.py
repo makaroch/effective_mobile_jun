@@ -7,15 +7,15 @@ class ViewBase(ABC):
         pass
 
     @abstractmethod
-    def get_info_fo_del_book(self):
+    def get_info_fo_del_book(self, controller: "ControllerBase"):
         pass
 
     @abstractmethod
-    def get_info_fo_search_book(self):
+    def get_info_fo_search_book(self, controller: "ControllerBase"):
         pass
 
     @abstractmethod
-    def show_all_book(self):
+    def show_all_book(self, controller: "ControllerBase"):
         pass
 
     @abstractmethod

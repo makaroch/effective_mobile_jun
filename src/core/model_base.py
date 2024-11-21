@@ -5,11 +5,11 @@ from src.core import Author, BookYear, Book
 
 class ModelBase(ABC):
     @abstractmethod
-    def add_book(self, book: Book) -> dict[str: str]:
+    def add_book(self, book: Book) -> "Response":
         pass
 
     @abstractmethod
-    def del_book(self, book_id: str) -> dict[str: str]:
+    def del_book(self, book_id: str) -> "Response":
         pass
 
     @abstractmethod
@@ -18,9 +18,9 @@ class ModelBase(ABC):
             raise ValueError("Все поля поиска пусты")
 
     @abstractmethod
-    def get_all_book(self) -> list[dict[str: str]]:
+    def get_all_book(self) -> list[Book]:
         pass
 
     @abstractmethod
-    def update_status_book(self, book_id: str) -> dict[str: str]:
+    def update_status_book(self, book_id: str) -> "Response":
         pass
