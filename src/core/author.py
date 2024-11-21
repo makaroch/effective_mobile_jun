@@ -22,3 +22,11 @@ class Author:
 
     def __repr__(self):
         return self.__str__()
+
+    @staticmethod
+    def loads_json(json: dict) -> "Author":
+        return Author(
+            surname=json.get("surname", ""),
+            name=json.get("name", ""),
+            patronymic=json.get("patronymic", ""),
+        )
