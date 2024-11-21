@@ -11,5 +11,5 @@ class MenuBase(ABC):
         pass
 
     @abstractmethod
-    def run(self):
+    def draw(self):
         pass

@@ -19,6 +19,13 @@ class Book:
     status: BookStatus = BookStatus.IN_STOCK
     id: uuid4 = uuid4()
 
+    def __post_init__(self):
+        self.validate()
+
+    def validate(self):
+        if len(self.title) == 0:
+            raise ValueError("Имя книги не может быть пустым")
+
     def __str__(self):
         in_stock_ru = "да" if self.status is BookStatus.IN_STOCK else "нет"
         return (f"Книга: {self.title}, Автор: {self.author}, "

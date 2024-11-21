@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
 
-from src.core import Author, BookYear
+from src.core import Author, BookYear, Book
 
 
 class ModelBase(ABC):
     @abstractmethod
-    def add_book(self, title: str, author: Author, year: BookYear) -> dict[str: str]:
+    def add_book(self, book: Book) -> dict[str: str]:
         pass
 
     @abstractmethod

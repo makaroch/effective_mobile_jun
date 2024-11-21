@@ -1,9 +1,11 @@
 from abc import ABC, abstractmethod
 
+from src.core import Book
+
 
 class ControllerBase(ABC):
     @abstractmethod
-    def add_book(self):
+    def add_book(self, book: Book):
         pass
 
     @abstractmethod

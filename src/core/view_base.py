@@ -1,11 +1,9 @@
 from abc import ABC, abstractmethod
 
-from src.core import Book
-
 
 class ViewBase(ABC):
     @abstractmethod
-    def get_info_fo_add_book(self) -> Book:
+    def get_info_fo_add_book(self, controller: "ControllerBase"):
         pass
 
     @abstractmethod
