@@ -1,9 +1,9 @@
-from src.core import ViewBase, Book, Author, BookYear, ControllerBase
+from src.core import ViewBase, Book, Author, BookYear
 from .console_menu import ConsoleMenu, ConsoleMenuItem
 
 
 class ConsoleView(ViewBase):
-    def show_main_menu(self, controller: ControllerBase):
+    def show_main_menu(self, controller: "ConsoleController"):
         main_menu = ConsoleMenu(
             [
                 ConsoleMenuItem("Добавление книги", self.get_info_fo_add_book, args=(controller,)),
@@ -11,16 +11,17 @@ class ConsoleView(ViewBase):
                 ConsoleMenuItem("Поиск книги", self.get_info_fo_search_book, args=(controller,)),
                 ConsoleMenuItem("Отображение всех книг", self.show_all_book, args=(controller,)),
                 ConsoleMenuItem("Изменение статуса книги", self.get_info_fo_update_status_book, args=(controller,)),
+                ConsoleMenuItem("Выйти", lambda: print("\nВсего ХО-РО-ШЕГО!")),
             ],
-            title="Главное меню"
+            title="\nГлавное меню"
         )
         main_menu.draw()
 
-    def save_book(self, title: str, author: Author, year: BookYear, controller: ControllerBase):
-        book = Book(title, author, year)
+    def save_book(self, title: str, author: Author, year: BookYear, controller: "ConsoleController"):
+        book = Book(title.strip().title(), author, year)
         controller.add_book(book)
 
-    def get_info_fo_add_book(self, controller: ControllerBase):
+    def get_info_fo_add_book(self, controller: "ConsoleController"):
         try:
             title = input("Введите название книги: ")
             author = self.__get_author_data()
@@ -43,16 +44,21 @@ class ConsoleView(ViewBase):
         finally:
             self.show_main_menu(controller)
 
-    def get_info_fo_del_book(self):
-        pass
+    def get_info_fo_del_book(self, controller: "ConsoleController"):
+        book_id = input("Введите id книги для удаления: ")
+        controller.del_book(book_id)
+        self.show_main_menu(controller)
 
     def get_info_fo_search_book(self):
         pass
 
-    def show_all_book(self):
-        pass
+    def show_all_book(self, controller: "ConsoleController"):
+        books = controller.get_all_book()
+        for book in books:
+            self.show_data(book)
+        self.show_main_menu(controller)
 
-    def show_data(self, text: str):
+    def show_data(self, text: str, status: int = 200):
         print(text)
 
     def get_info_fo_update_status_book(self):

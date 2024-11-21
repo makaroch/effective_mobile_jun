@@ -1,6 +1,4 @@
-from calendar import month
-
-from src.core import Book, ControllerBase
+from src.core import Book, ControllerBase, Response
 from src.models.console_model import ConsoleModel
 from src.views.console_view import ConsoleView
 
@@ -14,16 +12,18 @@ class ConsoleController(ControllerBase):
         self.view.get_info_fo_add_book(self)
 
     def add_book(self, book: Book):
-        self.model.add_book(book)
+        response = self.model.add_book(book)
+        self.view.show_data(response.message, response.status)
 
-    def del_book(self):
-        pass
+    def del_book(self, book_id):
+        response = self.model.del_book(book_id)
+        self.view.show_data(response.message, response.status)
 
     def search_book(self):
         pass
 
     def get_all_book(self):
-        pass
+        return self.model.get_all_book()
 
     def update_status_book(self):
         pass

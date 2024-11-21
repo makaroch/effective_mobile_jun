@@ -1,0 +1,57 @@
+[
+    {
+        "title": "book",
+        "author": {
+            "surname": "Smit",
+            "name": "Alex",
+            "patronymic": "None"
+        },
+        "year": "1644",
+        "status": "IN_STOCK",
+        "id": "c44d3b4b-02a7-4bb8-aa93-8b57ae9d2c27"
+    },
+    {
+        "title": "222",
+        "author": {
+            "surname": "222",
+            "name": "222",
+            "patronymic": "22"
+        },
+        "year": "22",
+        "status": "IN_STOCK",
+        "id": "ca4c05c7-7a06-4e33-b5b7-830f6066c95e"
+    },
+    {
+        "title": "\u043d\u043e\u0432\u0430\u044f \u043a\u043d\u0438\u0433\u0430 ",
+        "author": {
+            "surname": "\u041f\u0443\u043f\u043a\u0438\u043d",
+            "name": "\u041f\u0443\u043f\u0430",
+            "patronymic": "\u041b\u0443\u043f\u0430"
+        },
+        "year": "12",
+        "status": "IN_STOCK",
+        "id": "17ab5ca4-6946-46c8-bce5-57bcc2ebf1d5"
+    },
+    {
+        "title": "Eegege",
+        "author": {
+            "surname": "Eee",
+            "name": "Eefef",
+            "patronymic": "Ege"
+        },
+        "year": "545",
+        "status": "IN_STOCK",
+        "id": "6c9da0fe-ba4b-4236-9fa2-ab628c023353"
+    },
+    {
+        "title": "\u0418\u0434\u0438\u043e\u0442",
+        "author": {
+            "surname": "\u0415\u0441\u0435\u043d\u0438\u043d",
+            "name": "\u0410\u0430",
+            "patronymic": "\u041f\u0446\u043f\u0446"
+        },
+        "year": "484",
+        "status": "IN_STOCK",
+        "id": "e71af980-ee1e-4cff-8e73-84a838bd1568"
+    }
+]
