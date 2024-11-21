@@ -16,7 +16,7 @@ class Author:
                 raise ValueError(f"Все поля Author должны быть str, {k} type: {type(v)}")
 
     def __str__(self):
-        return f"{self.surname} {self.name} {self.patronymic}"
+        return f"{self.surname} {self.name[0]}. {self.patronymic[0]}."
 
     def __repr__(self):
         return self.__str__()

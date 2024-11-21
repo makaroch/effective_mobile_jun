@@ -31,7 +31,7 @@ class Book:
         return {
             "title": self.title,
             "author": self.author.__dict__,
-            "year": self.year,
+            "year": str(self.year),
             "status": self.status.value,
             "id": self.id.__str__(),
         }
