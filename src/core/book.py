@@ -5,7 +5,7 @@ from enum import Enum
 from .author import Author
 from .book_year import BookYear
 
-
+@dataclass(unsafe_hash=True)
 class BookStatus(Enum):
     IN_STOCK = "IN_STOCK"
     ISSUED = "ISSUED"
@@ -20,7 +20,7 @@ class BookStatus(Enum):
             raise Exception(f"{BookStatus.__name__} Не валидный json")
 
 
-@dataclass
+@dataclass(unsafe_hash=True)
 class Book:
     title: str
     author: Author
@@ -39,9 +39,9 @@ class Book:
             raise ValueError("id книги не может быть пустым")
 
     def __str__(self):
-        in_stock_ru = "есть" if self.status is BookStatus.IN_STOCK else "нет"
+        in_stock_ru = "В наличии" if self.status is BookStatus.IN_STOCK else "Выдана"
         return (f"Книга: {self.title} | Автор: {self.author} | "
-                f"Год издания: {self.year} | В наличии: {in_stock_ru} | id: {self.id}")
+                f"Год издания: {self.year} | {in_stock_ru} | id: {self.id}")
 
     def __repr__(self):
         return self.__str__()

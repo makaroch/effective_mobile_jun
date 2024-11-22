@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from datetime import date
 
 
-@dataclass
+@dataclass(unsafe_hash=True)
 class BookYear:
     year: str
 
