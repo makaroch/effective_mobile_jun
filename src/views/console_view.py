@@ -35,7 +35,7 @@ class ConsoleView(ViewBase):
                 title="Подменю добавления книги"
             ).draw()
         except ValueError as e:
-            self.show_info((e.__str__()))
+            self.show_info(e.__str__(), status=400)
 
     def get_info_fo_del_book(self, controller: "ConsoleController"):
         book_id = input("Введите id книги для удаления: ")
@@ -90,7 +90,12 @@ class ConsoleView(ViewBase):
         ).draw()
 
     def show_info(self, text: str, status: int = 200):
-        print(text)
+        if 200 <= status <= 299:
+            print(f"\x1b[0;30;42m{text}\x1b[0m")
+        elif 400 <= status <= 499:
+            print(f'\x1b[0;31;40m{text}\x1b[0m')
+        else:
+            print(text)
 
     def __get_author_data(self) -> tuple[str, str, str]:
         surname = input("Введите Фамилию автора: ").title()
