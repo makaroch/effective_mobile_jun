@@ -53,5 +53,16 @@
         "year": "2015",
         "status": "ISSUED",
         "id": "247610e7-43c6-4461-9fd8-e7eba5dce707"
+    },
+    {
+        "title": "Book",
+        "author": {
+            "surname": "Smit",
+            "name": "Smit",
+            "patronymic": "Smitovich"
+        },
+        "year": "2024",
+        "status": "IN_STOCK",
+        "id": "55c5fe9c-eced-448e-9a73-d0d256924676"
     }
 ]
