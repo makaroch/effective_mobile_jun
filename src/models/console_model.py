@@ -1,4 +1,4 @@
-from src.core import ModelBase, Book, Author, BookYear, Response
+from src.core import ModelBase, Book, Author, BookYear, Response, BookStatus
 from .databases.db import DB
 
 
@@ -17,5 +17,5 @@ class ConsoleModel(ModelBase):
     def get_all_book(self) -> list[Book]:
         return DB.get_all_book()
 
-    def update_status_book(self, book_id: str) -> Response:
-        pass
+    def update_status_book(self, book_id: str, status: BookStatus) -> Response:
+        return DB.update_status_book(book_id, status)

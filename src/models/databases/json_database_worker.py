@@ -1,7 +1,7 @@
 import os
 import json
 
-from src.core import Book, Author, BookYear, Response
+from src.core import Book, Author, BookYear, Response, BookStatus
 from src.core.database_worker_base import DatabaseWorkerBase
 
 
@@ -27,8 +27,8 @@ class JsonDatabaseWorker(DatabaseWorkerBase):
             if book.id == book_id:
                 books.pop(index)
                 self.__save_jsondb(books)
-                return Response(message="Книга удалена!")
-        return Response(message="Книга с таким id не найденна", status=404)
+                return Response(message=f"{book}\nКнига удалена!")
+        return Response(message="Книга с таким id не найдена", status=404)
 
     def search_book(self, title: str | None = None, author: Author | None = None, year: BookYear | None = None):
         pass
@@ -36,8 +36,14 @@ class JsonDatabaseWorker(DatabaseWorkerBase):
     def get_all_book(self) -> list[Book]:
         return self.__read_jsondb()
 
-    def update_status_book(self, book_id: str) -> dict[str: str]:
-        pass
+    def update_status_book(self, book_id: str, status: BookStatus) -> Response:
+        books = self.__read_jsondb()
+        for book in books:
+            if book.id == book_id:
+                book.status = status
+                self.__save_jsondb(books)
+                return Response(f"{book}\nУспешно изменено!")
+        return Response(message="Книга с таким id не найдена", status=404)
 
     def __read_jsondb(self) -> list[Book]:
         with open(self.path_to_db, "r", encoding="utf-8") as f:

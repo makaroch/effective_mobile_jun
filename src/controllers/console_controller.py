@@ -1,4 +1,4 @@
-from src.core import Book, ControllerBase, Response
+from src.core import Book, ControllerBase, BookStatus
 from src.models.console_model import ConsoleModel
 from src.views.console_view import ConsoleView
 
@@ -8,16 +8,11 @@ class ConsoleController(ControllerBase):
         self.view = view
         self.model = model
 
-    def get_info_add_bok(self):
-        self.view.get_info_fo_add_book(self)
-
     def add_book(self, book: Book):
-        response = self.model.add_book(book)
-        self.view.show_data(response.message, response.status)
+        return self.model.add_book(book)
 
     def del_book(self, book_id):
-        response = self.model.del_book(book_id)
-        self.view.show_data(response.message, response.status)
+        return self.model.del_book(book_id)
 
     def search_book(self):
         pass
@@ -25,8 +20,8 @@ class ConsoleController(ControllerBase):
     def get_all_book(self):
         return self.model.get_all_book()
 
-    def update_status_book(self):
-        pass
+    def update_status_book(self, book_id: str, status: BookStatus):
+        return self.model.update_status_book(book_id, status)
 
     def show_main_menu(self):
         self.view.show_main_menu(self)

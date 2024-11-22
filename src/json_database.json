@@ -1,27 +1,5 @@
 [
     {
-        "title": "book",
-        "author": {
-            "surname": "Smit",
-            "name": "Alex",
-            "patronymic": "None"
-        },
-        "year": "1644",
-        "status": "IN_STOCK",
-        "id": "c44d3b4b-02a7-4bb8-aa93-8b57ae9d2c27"
-    },
-    {
-        "title": "222",
-        "author": {
-            "surname": "222",
-            "name": "222",
-            "patronymic": "22"
-        },
-        "year": "22",
-        "status": "IN_STOCK",
-        "id": "ca4c05c7-7a06-4e33-b5b7-830f6066c95e"
-    },
-    {
         "title": "\u043d\u043e\u0432\u0430\u044f \u043a\u043d\u0438\u0433\u0430 ",
         "author": {
             "surname": "\u041f\u0443\u043f\u043a\u0438\u043d",
@@ -53,5 +31,16 @@
         "year": "484",
         "status": "IN_STOCK",
         "id": "e71af980-ee1e-4cff-8e73-84a838bd1568"
+    },
+    {
+        "title": "\u0423\u0446\u043a\u0446",
+        "author": {
+            "surname": "\u0423\u043a\u0443",
+            "name": "\u041a",
+            "patronymic": "\u0423\u043a\u0443"
+        },
+        "year": "324",
+        "status": "ISSUED",
+        "id": "a7bb994a-63e7-467d-a0b5-173fb9757589"
     }
 ]

@@ -7,7 +7,8 @@ def main():
     view = ConsoleView()
     model = ConsoleModel()
     controller = ConsoleController(view, model)
-    controller.show_main_menu()
+    while True:
+        controller.show_main_menu()
 
 
 if __name__ == '__main__':
