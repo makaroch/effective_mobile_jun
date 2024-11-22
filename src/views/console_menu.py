@@ -6,6 +6,12 @@ from src.core import MenuBase
 
 @dataclass(frozen=True)
 class ConsoleMenuItem:
+    """
+    Пункт меню для ConsoleMenu
+    description - описание пункта
+    funk - вызываемый объект
+    args - аргументы для funk
+    """
     description: str
     funk: Callable
     args: tuple = tuple()
@@ -22,6 +28,10 @@ class ConsoleMenuItem:
 
 
 class ConsoleMenu(MenuBase):
+    """
+    Консольное меню
+    выводит пункты меню в консоль запрашивает ввод у пользователя и вызывает funk у пункта меню
+    """
     def __init__(self, menu_items: list[ConsoleMenuItem], title: str | None = None):
         self.menu_items = menu_items
         self.title = title

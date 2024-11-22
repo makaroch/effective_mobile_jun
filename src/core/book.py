@@ -47,6 +47,21 @@ class Book:
         return self.__str__()
 
     def dumps_json(self) -> dict:
+        """
+        Сериализация book в dict
+        :return: возвращает словарь в формате
+            {
+                "title": "Python для самых маленьких",
+                "author": {
+                    "surname": "Иванов",
+                    "name": "Иван",
+                    "patronymic": "Иванович"
+                },
+                "year": "2024",
+                "status": "IN_STOCK",
+                "id": "6c9da0fe-ba4b-4236-9fa2-ab628c023353"
+            }
+        """
         return {
             "title": self.title,
             "author": self.author.__dict__,
@@ -57,6 +72,22 @@ class Book:
 
     @staticmethod
     def loads_json(json: dict) -> "Book":
+        """
+        Десериализует из json возвращает новый экземпляр Book
+        :param dict json: ожидается dict формата
+            {
+                "title": "Python для самых маленьких",
+                "author": {
+                    "surname": "Иванов",
+                    "name": "Иван",
+                    "patronymic": "Иванович"
+                },
+                "year": "2024",
+                "status": "IN_STOCK",
+                "id": "6c9da0fe-ba4b-4236-9fa2-ab628c023353"
+            }
+        :return: новый экземпляр Book
+        """
         return Book(
             title=json.get("title", ""),
             author=Author.loads_json(json.get("author", {})),

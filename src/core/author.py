@@ -25,6 +25,11 @@ class Author:
 
     @staticmethod
     def loads_json(json: dict) -> "Author":
+        """
+        Десериализует из json возвращает новый экземпляр Author
+        :param dict json: ожидается dict формата {'surname':..., 'name':..., 'patronymic':...}
+        :return: новый экземпляр Author
+        """
         return Author(
             surname=json.get("surname", ""),
             name=json.get("name", ""),

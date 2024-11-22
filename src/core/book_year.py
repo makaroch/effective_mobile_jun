@@ -4,6 +4,9 @@ from datetime import date
 
 @dataclass(unsafe_hash=True)
 class BookYear:
+    """
+    Год издания книги
+    """
     year: str
 
     def __post_init__(self):
