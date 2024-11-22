@@ -21,5 +21,5 @@ class DatabaseWorkerBase(ABC):
         pass
 
     @abstractmethod
-    def update_status_book(self, book_id: str) -> dict[str: str]:
+    def update_status_book(self, book_id: str, status) -> dict[str: str]:
         pass

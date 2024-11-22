@@ -22,5 +22,5 @@ class ModelBase(ABC):
         pass
 
     @abstractmethod
-    def update_status_book(self, book_id: str) -> "Response":
+    def update_status_book(self, book_id: str, status: str) -> "Response":
         pass

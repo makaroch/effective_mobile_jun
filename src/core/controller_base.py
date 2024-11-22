@@ -21,5 +21,5 @@ class ControllerBase(ABC):
         pass
 
     @abstractmethod
-    def update_status_book(self):
+    def update_status_book(self, book_id: str, status: str):
         pass

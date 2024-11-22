@@ -39,7 +39,7 @@ class Book:
             raise ValueError("id книги не может быть пустым")
 
     def __str__(self):
-        in_stock_ru = "да" if self.status is BookStatus.IN_STOCK else "нет"
+        in_stock_ru = "есть" if self.status is BookStatus.IN_STOCK else "нет"
         return (f"Книга: {self.title} | Автор: {self.author} | "
                 f"Год издания: {self.year} | В наличии: {in_stock_ru} | id: {self.id}")
 

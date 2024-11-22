@@ -19,9 +19,9 @@ class ViewBase(ABC):
         pass
 
     @abstractmethod
-    def show_data(self, text: str):
+    def show_info(self, text: str):
         pass
 
     @abstractmethod
-    def get_info_fo_update_status_book(self):
+    def get_info_fo_update_status_book(self, controller: "ConsoleController"):
         pass
