@@ -30,8 +30,18 @@ class JsonDatabaseWorker(DatabaseWorkerBase):
                 return Response(message=f"{book}\nКнига удалена!")
         return Response(message="Книга с таким id не найдена", status=404)
 
-    def search_book(self, title: str | None = None, author: Author | None = None, year: BookYear | None = None):
-        pass
+    def search_book(self, title: str | None = None, author: Author | None = None,
+                    year: BookYear | None = None) -> list[Book]:
+        books = self.__read_jsondb()
+        result = set()
+        for book in books:
+            if title is not None and book.title == title:
+                result.add(book)
+            if author is not None and book.author == author:
+                result.add(book)
+            if year is not None and book.year == year:
+                result.add(book)
+        return list(result)
 
     def get_all_book(self) -> list[Book]:
         return self.__read_jsondb()

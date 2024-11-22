@@ -10,9 +10,10 @@ class ConsoleModel(ModelBase):
     def del_book(self, book_id: str) -> Response:
         return DB.del_book(book_id)
 
-    def search_book(self, title: str | None = None, author: Author | None = None, year: BookYear | None = None):
-        if title is None and author is None and year is None:
-            raise ValueError("Все поля поиска пусты")
+    def search_book(self, title: str | None = None, author: Author | None = None,
+                    year: BookYear | None = None) -> list[Book]:
+        super().search_book(title, author, year)
+        return DB.search_book(title, author, year)
 
     def get_all_book(self) -> list[Book]:
         return DB.get_all_book()
